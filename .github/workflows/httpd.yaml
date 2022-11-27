@@ -37,8 +37,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           secret-files: |
-            "SCORPION_HTTPD_VERSION=./.env.example"
-          secrets: SCORPION_HTTPD_VERSION=${{ secrets.SCORPION_HTTPD_VERSION }}
+            "SCORPION_HTTPD_VERSION=./env/SCORPION_HTTPD_VERSION"
           context: .
           file: ./docker/httpd/Dockerfile
           build-args: |
