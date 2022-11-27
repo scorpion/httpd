@@ -40,7 +40,7 @@ jobs:
             "SCORPION_HTTPD_VERSION=./.env.example"
           context: ./docker/httpd
           build-args: |
-            SCORPION_HTTPD_VERSION=${{ secrets.SCORPION_HTTPD_VERSION }}
+            SCORPION_HTTPD_VERSION=2.4.54-alpine
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
