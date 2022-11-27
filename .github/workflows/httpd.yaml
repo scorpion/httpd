@@ -10,8 +10,8 @@
 name: HTTPD Docker image
 
 on:
-  release:
-    types: [published]
+  push:
+  pull_request:
 
 jobs:
   push_to_registry:
