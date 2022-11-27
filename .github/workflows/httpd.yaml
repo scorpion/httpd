@@ -38,7 +38,7 @@ jobs:
         with:
           context: ./docker/httpd
           build-args: |
-            SCORPION_HTTPD_VERSION=${{ tag }}
+            SCORPION_HTTPD_VERSION=${{ steps.meta.outputs.tag }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
