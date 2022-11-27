@@ -34,7 +34,7 @@ jobs:
           images: scorpion/httpd
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v3
         with:
           context: ./docker/httpd
           build-args: |
