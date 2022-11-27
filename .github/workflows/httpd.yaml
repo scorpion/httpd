@@ -39,7 +39,7 @@ jobs:
           secret-files: |
             "SCORPION_HTTPD_VERSION=./.env.example"
           context: .
-          file: ./docker/httpd
+          file: ./docker/httpd/Dockerfile
           build-args: |
             SCORPION_HTTPD_VERSION=${{ secrets.SCORPION_HTTPD_VERSION }}
           push: true
