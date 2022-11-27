@@ -36,9 +36,9 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
-          context: ./docker/httpd
           secret-files: |
-            "SCORPION_HTTPD_VERSION=../../.env.example"
+            "SCORPION_HTTPD_VERSION=./.env.example"
+          context: ./docker/httpd
           build-args: |
             SCORPION_HTTPD_VERSION=${{ secrets.SCORPION_HTTPD_VERSION }}
           push: true
