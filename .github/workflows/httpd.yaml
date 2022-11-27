@@ -38,12 +38,10 @@ jobs:
         with:
           secret-files: |
             "SCORPION_HTTPD_VERSION=./.env.example"
-          SECRETS: |
-            SCORPION_HTTPD_VERSION=${{ secrets.SCORPION_HTTPD_VERSION }}
           context: .
           file: ./docker/httpd/Dockerfile
           build-args: |
-            SCORPION_HTTPD_VERSION=${{ secrets.SCORPION_HTTPD_VERSION }}
+            SCORPION_HTTPD_VERSION=${{ SCORPION_HTTPD_VERSION }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
