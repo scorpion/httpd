@@ -27,6 +27,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Env variables from root
+        id: dotenv
+        uses: falti/dotenv-action@v1.0.1
+        with:
+          path: ./.env.example
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
@@ -36,12 +42,10 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
-          secret-files: |
-            "SCORPION_HTTPD_VERSION=./env/SCORPION_HTTPD_VERSION"
           context: .
           file: ./docker/httpd/Dockerfile
           build-args: |
-            SCORPION_HTTPD_VERSION=${{ secrets.SCORPION_HTTPD_VERSION }}
+            SCORPION_HTTPD_VERSION=${{ steps.dotenv.outputs.scorpion_httpd_version }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
