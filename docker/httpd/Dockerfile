@@ -13,3 +13,5 @@ COPY ./config/httpd.conf /usr/local/apache2/conf/httpd.conf
 
 # Copy public files into container.
 COPY ./html/ /usr/local/apache2/htdocs/
+
+EXPOSE 80 443 8080
