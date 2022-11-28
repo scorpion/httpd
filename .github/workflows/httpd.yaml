@@ -7,7 +7,7 @@
 # To get a newer version, you will need to update the SHA.
 # You can also reference a tag or branch, but the action may change without warning.
 
-name: HTTPD Docker image
+name: HTTPD Docker Image
 
 on:
   push:
@@ -27,9 +27,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Env variables from root
+      - name: Extract .env variables from root
         id: dotenv
-        uses: falti/dotenv-action@v1.0.1
+        uses: falti/dotenv-action@v1
         with:
           path: ./.env.example
 

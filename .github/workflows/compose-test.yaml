@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build the Docker image
+      - name: Compose Docker Images
         run: |
           set -eux
           cp .env.example .env
